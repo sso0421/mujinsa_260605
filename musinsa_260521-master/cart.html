@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-MWB3RTRK");
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MUJINSA CART</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MWB3RTRK"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="app">
+      <main>
+        <header class="header" id="siteHeader">
+          <div class="header__top">
+            <a class="brand" href="./index.html" id="gnbHome">
+              <div class="brand__logo">MUJINSA</div>
+              <div class="brand__sub">cart</div>
+            </a>
+            <nav class="gnb" aria-label="GNB">
+              <div class="gnb__links">
+                <a href="./signup.html" id="gnbSignup">회원가입</a>
+                <a href="./login.html" id="gnbLogin">로그인</a>
+                <a href="./orders.html" id="gnbOrders">주문조회</a>
+                <a href="./recent.html" id="gnbRecent">최근본상품</a>
+                <a href="./help.html" id="gnbHelp">고객센터</a>
+              </div>
+              <div class="gnb__icons">
+                <a
+                  class="icon-btn"
+                  href="./search.html"
+                  aria-label="검색"
+                  id="btnSearchStatic"
+                >
+                  <svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="M20 20l-3.5-3.5"></path>
+                  </svg>
+                </a>
+                <a class="icon-btn" href="./login.html" aria-label="계정">
+                  <svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M20 21a8 8 0 0 0-16 0"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </a>
+                <a class="icon-btn" href="./cart.html" aria-label="장바구니">
+                  <svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M6 6h15l-1.5 9h-12z"></path>
+                    <path d="M6 6l-2-3H1"></path>
+                    <circle cx="9" cy="20" r="1"></circle>
+                    <circle cx="18" cy="20" r="1"></circle>
+                  </svg>
+                </a>
+              </div>
+            </nav>
+          </div>
+        </header>
+        <!-- <div style="height: 1200px"></div>
+        <a class="btn" href="./index.html">메인으로</a> -->
+        <section class="cart-wrap">
+          <div class="cart-head">
+            <div>
+              <h1>장바구니</h1>
+              <p>담은 상품을 확인하고 주문을 진행해보세요.</p>
+            </div>
+            <a class="btn btn--ghost" href="./index.html">쇼핑 계속하기</a>
+          </div>
+
+          <div class="cart-layout">
+            <div>
+              <div id="cartList" class="cart-list"></div>
+
+              <section class="cart-recommend">
+                <h2>함께 보면 좋은 상품</h2>
+                <p>최근 본 상품을 기반으로 추천합니다.</p>
+                <div id="cartRecommendList" class="cart-recommend-list"></div>
+              </section>
+            </div>
+
+            <aside class="cart-summary">
+              <h2>주문 예상 금액</h2>
+
+              <div class="summary-row">
+                <span>상품금액</span>
+                <strong id="summaryOrigin">0원</strong>
+              </div>
+
+              <div class="summary-row">
+                <span>할인금액</span>
+                <strong id="summaryDiscount">0원</strong>
+              </div>
+
+              <div class="summary-row">
+                <span>배송비</span>
+                <strong id="summaryShipping">0원</strong>
+              </div>
+
+              <div class="summary-total">
+                <span>총 결제금액</span>
+                <strong id="summaryTotal">0원</strong>
+              </div>
+
+              <button class="btn btn--wide" id="checkoutBtn">구매하기</button>
+
+              <div class="cart-benefit">
+                <b>전환율 실습 포인트</b>
+                <p>
+                  무료배송, 쿠폰, 구매하기 버튼 클릭 이벤트를 GA4/GTM 실습에
+                  활용할 수 있습니다.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </section>
+        <footer class="footer">
+          <div class="footer__inner">
+            <div><b>MUJINSA</b><br />장바구니 페이지</div>
+          </div>
+        </footer>
+      </main>
+    </div>
+    <script type="module">
+      import { getCartList, getRecentlyViewed, formatKRW } from "./utils.js";
+
+      const cartListEl = document.getElementById("cartList");
+      const recommendEl = document.getElementById("cartRecommendList");
+
+      const summaryOrigin = document.getElementById("summaryOrigin");
+      const summaryDiscount = document.getElementById("summaryDiscount");
+      const summaryShipping = document.getElementById("summaryShipping");
+      const summaryTotal = document.getElementById("summaryTotal");
+      const checkoutBtn = document.getElementById("checkoutBtn");
+
+      const CART_KEY = "musinsa_cart";
+
+      function saveCart(list) {
+        localStorage.setItem(CART_KEY, JSON.stringify(list));
+      }
+
+      function renderCart() {
+        const cart = getCartList();
+
+        if (!cart.length) {
+          cartListEl.innerHTML = `
+            <div class="empty-box">
+              <strong>장바구니가 비어 있습니다.</strong>
+              <p>상품 상세페이지에서 장바구니 버튼을 눌러 상품을 담아보세요.</p>
+              <a class="btn" href="./index.html">상품 보러가기</a>
+            </div>
+          `;
+
+          updateSummary([]);
+          return;
+        }
+
+        cartListEl.innerHTML = cart
+          .map(
+            (p) => `
+              <article class="cart-item">
+                <a href="./product.html?id=${encodeURIComponent(p.id)}">
+                  <img src="${p.thumbnailUrl}" alt="${p.name}">
+                </a>
+    
+                <div class="cart-item__info">
+                  <div class="cart-brand">${p.brand}</div>
+                  <h2>${p.name}</h2>
+    
+                  <div class="cart-price">
+                    <span>${p.discountRate}%</span>
+                    <strong>${formatKRW(p.salePrice)}</strong>
+                    <del>${formatKRW(p.price)}</del>
+                  </div>
+    
+                  <div class="cart-actions">
+                    <button type="button" data-action="minus" data-id="${p.id}">-</button>
+                    <strong>${p.qty || 1}</strong>
+                    <button type="button" data-action="plus" data-id="${p.id}">+</button>
+                    <button type="button" data-action="remove" data-id="${p.id}" class="cart-remove">삭제</button>
+                  </div>
+                </div>
+              </article>
+            `,
+          )
+          .join("");
+
+        updateSummary(cart);
+        bindCartButtons();
+      }
+
+      function bindCartButtons() {
+        document.querySelectorAll("[data-action]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const action = btn.dataset.action;
+            const id = btn.dataset.id;
+
+            let cart = getCartList();
+
+            if (action === "plus") {
+              cart = cart.map((p) =>
+                p.id === id ? { ...p, qty: Number(p.qty || 1) + 1 } : p,
+              );
+            }
+
+            if (action === "minus") {
+              cart = cart.map((p) =>
+                p.id === id
+                  ? { ...p, qty: Math.max(1, Number(p.qty || 1) - 1) }
+                  : p,
+              );
+            }
+
+            if (action === "remove") {
+              cart = cart.filter((p) => p.id !== id);
+            }
+
+            saveCart(cart);
+            renderCart();
+          });
+        });
+      }
+
+      function updateSummary(cart) {
+        const originTotal = cart.reduce(
+          (sum, p) =>
+            sum + Number(p.price || p.salePrice || 0) * Number(p.qty || 1),
+          0,
+        );
+
+        const saleTotal = cart.reduce(
+          (sum, p) => sum + Number(p.salePrice || 0) * Number(p.qty || 1),
+          0,
+        );
+
+        const discountTotal = originTotal - saleTotal;
+        const shipping = cart.length && saleTotal < 50000 ? 3000 : 0;
+        const total = saleTotal + shipping;
+
+        summaryOrigin.textContent = formatKRW(originTotal);
+        summaryDiscount.textContent = `-${formatKRW(discountTotal)}`;
+        summaryShipping.textContent =
+          shipping === 0 ? "무료" : formatKRW(shipping);
+        summaryTotal.textContent = formatKRW(total);
+      }
+
+      function renderRecommend() {
+        const recent = getRecentlyViewed().slice(0, 4);
+
+        if (!recent.length) {
+          recommendEl.innerHTML = `
+            <div class="empty-box">
+              <strong>추천 상품이 없습니다.</strong>
+              <p>상품 상세페이지를 몇 개 방문하면 추천 상품이 표시됩니다.</p>
+            </div>
+          `;
+          return;
+        }
+
+        recommendEl.innerHTML = recent
+          .map(
+            (p) => `
+              <a class="cart-rec-card" href="./product.html?id=${encodeURIComponent(p.id)}">
+                <img src="${p.thumbnailUrl}" alt="${p.name}">
+                <div>
+                  <b>${p.brand}</b>
+                  <p>${p.name}</p>
+                  <strong>${formatKRW(p.salePrice)}</strong>
+                </div>
+              </a>
+            `,
+          )
+          .join("");
+      }
+
+      checkoutBtn.addEventListener("click", () => {
+        const cart = getCartList();
+
+        if (!cart.length) {
+          alert("장바구니에 담긴 상품이 없습니다.");
+          return;
+        }
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "begin_checkout",
+          ecommerce: {
+            items: cart.map((p) => ({
+              item_id: p.id,
+              item_name: p.name,
+              item_brand: p.brand,
+              price: p.salePrice,
+              quantity: p.qty || 1,
+            })),
+          },
+        });
+
+        alert(
+          "구매하기 버튼 클릭 이벤트가 발생했습니다. GA4/GTM 실습에 활용할 수 있습니다.",
+        );
+      });
+
+      renderCart();
+      renderRecommend();
+    </script>
+  </body>
+</html>

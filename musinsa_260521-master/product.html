@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-MWB3RTRK");
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MUJINSA PRODUCT</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="product">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MWB3RTRK"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="app">
+      <main class="container">
+        <div class="breadcrumb">
+          홈 / <span id="bcCategory">카테고리</span> /
+          <span id="bcBrand">브랜드</span>
+        </div>
+
+        <section class="product">
+          <div>
+            <div class="gallery">
+              <div class="gallery__main">
+                <img id="mainImg" src="" alt="" />
+              </div>
+              <div class="gallery__thumbs" id="thumbs"></div>
+            </div>
+          </div>
+
+          <aside class="pinfo" aria-label="상품 정보">
+            <div class="pbrand" id="pBrand">브랜드</div>
+            <h1 class="pname" id="pName">상품명</h1>
+
+            <div class="pricebox">
+              <span class="dc" id="pDc">0%</span>
+              <span class="sale" id="pSale">-</span>
+              <span class="origin" id="pOrigin">-</span>
+            </div>
+
+            <div class="pmeta">
+              <div class="meta-item">
+                <b>평점</b>★ <span id="pRating">0.0</span>
+              </div>
+              <div class="meta-item">
+                <b>리뷰</b><span id="pReviewCount">0</span>개
+              </div>
+              <div class="meta-item">
+                <b>배송</b><span id="pShipping">-</span>
+              </div>
+              <div class="meta-item">
+                <b>판매자</b><span id="pSeller">-</span>
+              </div>
+              <div class="meta-item"><b>재고</b><span id="pStock">-</span></div>
+              <div class="meta-item">
+                <b>WISH</b><span id="wishCount">0</span>
+              </div>
+            </div>
+
+            <div class="badges" id="pTags"></div>
+
+            <div class="cta">
+              <button class="btn" id="btnBuy" data-event="begin_checkout">
+                바로구매
+              </button>
+              <button
+                class="btn btn--ghost"
+                id="btnCart2"
+                data-event="add_to_cart"
+              >
+                장바구니
+              </button>
+              <button
+                class="btn btn--ghost"
+                id="btnWish"
+                data-event="add_to_wishlist"
+              >
+                WISH LIST
+              </button>
+            </div>
+
+            <div
+              style="margin-top: 18px; color: #666; line-height: 1.7"
+              id="pDesc"
+            ></div>
+          </aside>
+        </section>
+
+        <section class="tabs" aria-label="상세/리뷰/문의">
+          <div class="tabbar" role="tablist">
+            <button type="button" data-tab="detail" id="tabDetail">
+              상품정보
+            </button>
+            <button type="button" data-tab="reviews" id="tabReviews">
+              리뷰
+            </button>
+            <button type="button" data-tab="qna" id="tabQna">문의</button>
+          </div>
+
+          <div class="tabpanel" data-panel="detail">
+            <section class="detail-long">
+              <div class="detail-long__image">
+                <img id="detailImg" src="" alt="" />
+              </div>
+
+              <div class="detail-long__text">
+                <div id="detailBrand" class="detail-brand">브랜드</div>
+                <h2 id="detailName">상품명</h2>
+                <p id="detailDesc">상품 설명</p>
+              </div>
+
+              <div class="detail-long__section">
+                <h3>이 상품이 어울리는 상황</h3>
+                <p id="detailRecommendText"></p>
+              </div>
+
+              <div class="detail-long__section">
+                <h3>고객 리뷰 기반 포인트</h3>
+                <div
+                  id="detailReviewSummary"
+                  class="detail-review-summary"
+                ></div>
+              </div>
+            </section>
+            <h2 style="margin: 0 0 10px 0">상세 설명</h2>
+            <p style="margin: 0; color: #666; line-height: 1.8"></p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                margin-top: 16px;
+              "
+            >
+              <div class="meta-item">
+                <b>핏 가이드</b>스탠다드 · 루즈 · 오버핏 등
+              </div>
+              <div class="meta-item">
+                <b>코디 제안</b>데님/슬랙스/스커트 매치 추천
+              </div>
+              <div class="meta-item"><b>소재</b>면/폴리/울 혼방 등</div>
+              <div class="meta-item">
+                <b>관리</b>단독 세탁 권장 · 건조기 금지
+              </div>
+            </div>
+
+            <div style="margin-top: 18px">
+              <h3 style="margin: 0 0 10px 0">구매 전 확인</h3>
+              <ul style="margin: 0; color: #666; line-height: 1.8">
+                <li>배송/교환/반품 정책</li>
+                <li>세탁 시 주의사항</li>
+                <li>관리 및 보관방법</li>
+              </ul>
+            </div>
+            <!-- <div style="height: 900px"></div> -->
+          </div>
+
+          <div class="tabpanel" data-panel="reviews">
+            <h2 style="margin: 0 0 10px 0">리뷰</h2>
+            <div id="reviewList"></div>
+            <!-- <div style="height: 500px"></div> -->
+          </div>
+
+          <div class="tabpanel" data-panel="qna">
+            <h2 style="margin: 0 0 10px 0">상품 문의</h2>
+            <p style="margin: 0; color: #666; line-height: 1.7"></p>
+            <form
+              style="
+                margin-top: 14px;
+                display: grid;
+                gap: 10px;
+                max-width: 720px;
+              "
+            >
+              <input class="input" id="qnaTitle" placeholder="제목" />
+              <textarea
+                class="input"
+                id="qnaBody"
+                placeholder="문의 내용을 입력하세요"
+                style="min-height: 140px"
+              ></textarea>
+              <button
+                class="btn"
+                id="btnQnaSubmit"
+                type="button"
+                data-event="qna_submit"
+              >
+                문의 등록
+              </button>
+            </form>
+            <!-- <div style="height: 600px"></div> -->
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

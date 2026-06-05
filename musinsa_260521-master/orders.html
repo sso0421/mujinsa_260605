@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-MWB3RTRK");
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MUJINSA ORDERS</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MWB3RTRK"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="app">
+      <main>
+        <header class="header" id="siteHeader">
+          <div class="header__top">
+            <a class="brand" href="./index.html" id="gnbHome">
+              <div class="brand__logo">MUJINSA</div>
+              <div class="brand__sub">orders</div>
+            </a>
+            <nav class="gnb" aria-label="GNB">
+              <div class="gnb__links">
+                <a href="./signup.html" id="gnbSignup">회원가입</a>
+                <a href="./login.html" id="gnbLogin">로그인</a>
+                <a href="./orders.html" id="gnbOrders">주문조회</a>
+                <a href="./recent.html" id="gnbRecent">최근본상품</a>
+                <a href="./help.html" id="gnbHelp">고객센터</a>
+              </div>
+              <div class="gnb__icons">
+                <a
+                  class="icon-btn"
+                  href="./search.html"
+                  aria-label="검색"
+                  id="btnSearchStatic"
+                >
+                  <svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="M20 20l-3.5-3.5"></path>
+                  </svg>
+                </a>
+                <a class="icon-btn" href="./login.html" aria-label="계정">
+                  <svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M20 21a8 8 0 0 0-16 0"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </a>
+                <a class="icon-btn" href="./cart.html" aria-label="장바구니">
+                  <svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M6 6h15l-1.5 9h-12z"></path>
+                    <path d="M6 6l-2-3H1"></path>
+                    <circle cx="9" cy="20" r="1"></circle>
+                    <circle cx="18" cy="20" r="1"></circle>
+                  </svg>
+                </a>
+              </div>
+            </nav>
+          </div>
+        </header>
+        <!-- <div style="height: 1200px"></div>
+        <a class="btn" href="./index.html">메인으로</a> -->
+        <section class="orders-wrap">
+          <h1>주문조회</h1>
+          <p>WISH LIST에 담은 상품을 주문조회 형태로 확인할 수 있습니다.</p>
+
+          <div id="wishOrderList" class="wish-order-list"></div>
+        </section>
+        <footer class="footer">
+          <div class="footer__inner">
+            <div><b>MUJINSA</b><br />주문조회 페이지</div>
+          </div>
+        </footer>
+      </main>
+    </div>
+    <script type="module">
+      import { getWishList, formatKRW } from "./utils.js";
+
+      const listEl = document.getElementById("wishOrderList");
+      const wishlist = getWishList();
+
+      if (!wishlist.length) {
+        listEl.innerHTML = `
+          <div class="empty-box">
+            <strong>아직 WISH LIST에 담긴 상품이 없습니다.</strong>
+            <p>상품 상세페이지에서 WISH LIST 버튼을 눌러 상품을 담아보세요.</p>
+            <a class="btn" href="./index.html">상품 보러가기</a>
+          </div>
+        `;
+      } else {
+        listEl.innerHTML = wishlist
+          .map(
+            (p) => `
+            <article class="wish-order-card">
+              <img src="${p.thumbnailUrl}" alt="${p.name}">
+              <div>
+                <div class="wish-order-brand">${p.brand}</div>
+                <h2>${p.name}</h2>
+                <p>
+                  <strong>${formatKRW(p.salePrice)}</strong>
+                  <span>${p.discountRate}% 할인</span>
+                </p>
+                <a class="btn btn--ghost" href="./product.html?id=${encodeURIComponent(p.id)}">
+                  상품 상세보기
+                </a>
+              </div>
+            </article>
+          `,
+          )
+          .join("");
+      }
+    </script>
+  </body>
+</html>

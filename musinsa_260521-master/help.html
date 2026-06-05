@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-MWB3RTRK");
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MUJINSA HELP</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MWB3RTRK"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="app">
+      <main>
+        <header class="header" id="siteHeader">
+          <div class="header__top">
+            <a class="brand" href="./index.html" id="gnbHome">
+              <div class="brand__logo">MUJINSA</div>
+              <div class="brand__sub">help</div>
+            </a>
+            <nav class="gnb" aria-label="GNB">
+              <div class="gnb__links">
+                <a href="./signup.html" id="gnbSignup">회원가입</a>
+                <a href="./login.html" id="gnbLogin">로그인</a>
+                <a href="./orders.html" id="gnbOrders">주문조회</a>
+                <a href="./recent.html" id="gnbRecent">최근본상품</a>
+                <a href="./help.html" id="gnbHelp">고객센터</a>
+              </div>
+              <div class="gnb__icons">
+                <a
+                  class="icon-btn"
+                  href="./search.html"
+                  aria-label="검색"
+                  id="btnSearchStatic"
+                >
+                  <svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="M20 20l-3.5-3.5"></path>
+                  </svg>
+                </a>
+                <a class="icon-btn" href="./login.html" aria-label="계정">
+                  <svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M20 21a8 8 0 0 0-16 0"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </a>
+                <a class="icon-btn" href="./cart.html" aria-label="장바구니">
+                  <svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M6 6h15l-1.5 9h-12z"></path>
+                    <path d="M6 6l-2-3H1"></path>
+                    <circle cx="9" cy="20" r="1"></circle>
+                    <circle cx="18" cy="20" r="1"></circle>
+                  </svg>
+                </a>
+              </div>
+            </nav>
+          </div>
+        </header>
+        <!-- <div style="height: 1200px"></div>
+        <a class="btn" href="./index.html">메인으로</a> -->
+        <section class="help-wrap">
+          <h1>고객센터</h1>
+          <p>자주 묻는 질문을 확인해보세요.</p>
+
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary>배송은 얼마나 걸리나요?</summary>
+              <p>
+                일반적으로 결제 완료 후 1~3일 이내 출고됩니다. 상품 및 판매자
+                상황에 따라 달라질 수 있습니다.
+              </p>
+            </details>
+
+            <details class="faq-item">
+              <summary>교환/반품은 어떻게 신청하나요?</summary>
+              <p>
+                상품 수령 후 7일 이내 마이페이지 또는 고객센터를 통해 신청할 수
+                있습니다.
+              </p>
+            </details>
+
+            <details class="faq-item">
+              <summary>WISH LIST에 담은 상품은 어디에서 확인하나요?</summary>
+              <p>
+                상품 상세페이지에서 WISH LIST를 누르면 주문조회 페이지에서 담은
+                상품을 확인할 수 있습니다.
+              </p>
+            </details>
+
+            <details class="faq-item">
+              <summary>최근 본 상품은 어디에 저장되나요?</summary>
+              <p>
+                최근 본 상품은 브라우저 localStorage에 저장되며, 최근본상품
+                페이지에서 확인할 수 있습니다.
+              </p>
+            </details>
+
+            <details class="faq-item">
+              <summary>비회원도 구매할 수 있나요?</summary>
+              <p>
+                로그인 페이지의 비회원 구매 버튼을 통해 비회원 구매 흐름을
+                실습할 수 있습니다.
+              </p>
+            </details>
+
+            <details class="faq-item">
+              <summary>리뷰 데이터는 어디에서 활용되나요?</summary>
+              <p>
+                상품 상세페이지의 리뷰 탭과 상세 설명 영역에서 고객 반응 분석
+                실습에 활용할 수 있습니다.
+              </p>
+            </details>
+          </div>
+        </section>
+        <footer class="footer">
+          <div class="footer__inner">
+            <div><b>MUJINSA</b><br />고객센터 페이지</div>
+          </div>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>

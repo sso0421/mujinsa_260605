@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-MWB3RTRK");
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MUJINSA SEARCH</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="search">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MWB3RTRK"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="app">
+      <main class="container">
+        <div style="text-align: center; margin-top: 28px">
+          <div
+            style="font-size: 34px; font-weight: 900; letter-spacing: 0.04em"
+          >
+            상품검색
+          </div>
+        </div>
+
+        <form
+          id="searchFormPage"
+          style="max-width: 860px; margin: 34px auto 0 auto"
+        >
+          <div class="searchbox" style="border-bottom: 2px solid #111">
+            <input id="searchQ" placeholder="" aria-label="검색어" />
+            <button
+              type="submit"
+              aria-label="검색"
+              id="btnSearchOnPage"
+              data-event="search_submit_page"
+            >
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="11" cy="11" r="7"></circle>
+                <path d="M20 20l-3.5-3.5"></path>
+              </svg>
+            </button>
+          </div>
+        </form>
+
+        <div
+          id="searchEmpty"
+          style="max-width: 860px; margin: 22px auto 0 auto"
+        >
+          <div
+            style="
+              display: flex;
+              gap: 10px;
+              flex-wrap: wrap;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            <b style="margin-right: 8px">인기검색어</b>
+            <a class="badge" href="./search.html?q=진주귀걸이">#진주귀걸이</a>
+            <a class="badge" href="./search.html?q=귀걸이">#귀걸이</a>
+            <a class="badge" href="./search.html?q=패션귀걸이">#패션귀걸이</a>
+            <a class="badge" href="./search.html?q=여성패션">#여성패션</a>
+            <a class="badge" href="./search.html?q=여자귀걸이">#여자귀걸이</a>
+          </div>
+        </div>
+        <div style="max-width: 1200px; margin: 26px auto 0 auto">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 10px;
+              margin-bottom: 12px;
+            "
+          >
+            <div style="color: #666" id="searchCount"></div>
+            <div style="color: #666; font-size: 13px">
+              팁: 빈 검색어로 Enter → 인기검색어 화면 유지
+            </div>
+          </div>
+          <section
+            class="grid"
+            id="searchResults"
+            aria-label="검색 결과"
+          ></section>
+        </div>
+        <!-- <div style="height: 800px"></div> -->
+      </main>
+      <footer class="footer">
+        <div class="footer__inner">
+          <div><b>MUJINSA</b><br />검색 페이지</div>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
